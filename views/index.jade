@@ -1,0 +1,11 @@
+extends ./layout/layout.jade
+
+block title
+  title Demo
+
+block content
+  p Demo!
+
+block scripts
+  script(src="/js/jsonp.js")
+  script(src="/api/jsonp/1234?_cb=handleData")
