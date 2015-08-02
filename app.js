@@ -49,6 +49,10 @@ router.get('/', function *() {
   return yield this.render('index');
 });
 
+router.get('/demo/:name', function *() {
+  return yield this.render('demo/' + this.params.name);
+});
+
 app.use(apiRouter.routes());
 app.use(router.routes());
 

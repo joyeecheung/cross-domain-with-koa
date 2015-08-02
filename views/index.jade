@@ -3,9 +3,22 @@ extends ./layout/layout.jade
 block title
   title Demo
 
-block content
-  p Demo!
+block styles
+  link(rel="stylesheet" href="/css/index.css")
 
-block scripts
-  script(src="/js/jsonp.js")
-  script(src="/api/jsonp/1234?_cb=handleData")
+block content
+  h1 Cross-domain AJAX with Koa
+
+  hr
+
+  ul
+    li
+      a(href="/demo/cors") Cross-Origin Resource Sharing(CORS)
+    li
+      a(href="/demo/jsonp") JSON with Padding(JSONP)
+    li
+      a(href="/demo/domain")
+        code document.domain
+    li
+      a(href="/demo/message")
+        code window.postMessage()

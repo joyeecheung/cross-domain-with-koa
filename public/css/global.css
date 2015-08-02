@@ -1,0 +1,15 @@
+body {
+    color: #444;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h1 {
+    margin: 50px auto;
+    text-align: center;
+    font-size: 46px;
+    font-weight: normal;
+}
+
+code {
+    font-family: monaco, menlo, consolas, monospace;
+}
