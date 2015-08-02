@@ -1,0 +1,47 @@
+.demo {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.demo-controls {
+    text-align: center;
+}
+
+.demo-results {
+    margin-top: 30px;
+}
+
+.demo-controls input {
+    font-size: 24px;
+    height: 30px;
+    border-radius: 2px;
+    border: 1px solid #bbb;
+    padding: 4px 8px;
+}
+
+.demo-controls button {
+    font-size: 16px;    
+    display: inline-block;
+    border-radius: 2px;    
+    border: 1px solid transparent;    
+    padding: 8px 16px;
+    
+    cursor: pointer;
+    margin-left: 20px;
+    color: white;
+    background-color: #E4956C;
+    transition: all 0.2s ease-in-out;
+}
+
+.demo-controls button:hover {
+    background-color: rgb(255, 172, 103);
+}
+
+.demo-results pre {
+    font-family: monaco, menlo, consolas, monospace;
+    font-size: 16px;
+    padding: 20px;
+    background-color: #eee;
+    margin: auto;
+    max-width: 80%;
+}

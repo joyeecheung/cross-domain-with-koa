@@ -7,7 +7,15 @@ block styles
   link(rel='stylesheet', href="/css/demo.css")
 
 block content
-  p JSONP Demo
+  h1 JSONP Demo
+
+  .demo
+    .demo-controls
+      input#get-jsonp-id(type="text", placeholder="id" value="some-id")
+      button#get-jsonp-button GET the data!
+    .demo-results
+      pre#get-jsonp-data
+
 
 block scripts
-  script(src="/js/cors.js")
+  script(src="/js/jsonp.js")
