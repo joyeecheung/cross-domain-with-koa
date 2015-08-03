@@ -9,5 +9,22 @@ block styles
 block content
   h1 CORS Demo
 
+  .demo
+    .demo-controls
+      input#get-cors-id(type="text", placeholder="id" value="some-id")
+      button#get-cors-button GET the data!
+    .demo-results
+      pre#get-cors-data
+
+  .demo
+    .demo-controls
+      input#post-cors-id(type="text", placeholder="id" value="some-id")
+    .demo-controls
+      button#post-cors-button POST the data!
+      input#post-cors-preflight(type="checkbox")
+      label(for="post-cors-preflight") preflight
+    .demo-results
+      pre#post-cors-data
+
 block scripts
   script(src="/js/cors.js")

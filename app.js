@@ -7,10 +7,12 @@ var serve = require('koa-static');
 var Router = require('koa-router');
 var logger = require('koa-logger');
 var views = require('koa-views');
-
+var bodyParser = require('koa-body')();
 
 var jsonp = require('koa-jsonp');
-var cors = require('koa-cors');
+var cors = require('koa-cors')({
+  methods: ['GET', 'POST', 'OPTIONS']
+});
 
 /******************************************************
  * Initialize application
@@ -30,6 +32,13 @@ function *getThings() {
   }
 }
 
+function *postThings() {
+  this.body = {
+    content: this.request.body,
+    success: true
+  };
+}
+
 function *isJSON(next) {
   this.type = 'json';
   yield next;
@@ -42,8 +51,14 @@ var router = new Router();
 
 apiRouter.get('/jsonp/:id',
               jsonp({callbackName: '_cb'}), getThings);
-apiRouter.get('/cors/:id', cors(), isJSON, getThings);
+
+// for preflight request
+apiRouter.options('/cors', cors);
+apiRouter.get('/cors/:id', cors, isJSON, getThings);
+apiRouter.post('/cors', cors, bodyParser, isJSON, postThings);
+
 apiRouter.get('/normal/:id', isJSON, getThings);
+apiRouter.post('/normal', bodyParser, isJSON, postThings);
 
 router.get('/', function *() {
   return yield this.render('index');
@@ -53,7 +68,7 @@ router.get('/demo/:name', function *() {
   return yield this.render('demo/' + this.params.name);
 });
 
-app.use(apiRouter.routes());
+app.use(apiRouter.routes())
 app.use(router.routes());
 
 /******************************************************

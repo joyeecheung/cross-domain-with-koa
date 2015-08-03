@@ -1,3 +1,10 @@
+.index {
+    text-decoration: none;
+    color: #444;
+    position: fixed;
+    /* float: right; */
+}
+
 .demo {
     max-width: 800px;
     margin: 0 auto;
@@ -5,6 +12,7 @@
 
 .demo-controls {
     text-align: center;
+    margin-top: 20px;
 }
 
 .demo-results {
@@ -12,14 +20,17 @@
 }
 
 .demo-controls input {
+    font: inherit;
     font-size: 24px;
     height: 30px;
     border-radius: 2px;
     border: 1px solid #bbb;
     padding: 4px 8px;
+    vertical-align: middle;
 }
 
 .demo-controls button {
+    font: inherit;
     font-size: 16px;    
     display: inline-block;
     border-radius: 2px;    
@@ -35,6 +46,10 @@
 
 .demo-controls button:hover {
     background-color: rgb(255, 172, 103);
+}
+
+.demo-controls input[type=checkbox] {
+    margin-left: 20px;
 }
 
 .demo-results pre {
