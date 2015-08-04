@@ -59,12 +59,12 @@ header {
     margin-top: 20px;
     color: white;
     background-color: #34C5C5;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.3s ease-in;
     width: 232px;
 }
 
 .demo-controls button:hover {
-    background-color: rgb(255, 172, 103);
+    background-color: #5EDBDB;
 }
 
 .demo-controls input[type=checkbox] {
