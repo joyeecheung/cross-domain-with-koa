@@ -27,7 +27,7 @@ hr {
 }
 
 .demos li:nth-child(1) a {
-    border-left: 8px solid rgb(52, 197, 197);
+    border-left: 8px solid #34C5C5;
 }
 .demos li:nth-child(2) a {
     border-left: 8px solid #E4956C;

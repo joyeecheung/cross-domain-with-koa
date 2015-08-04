@@ -58,7 +58,7 @@ header {
     cursor: pointer;
     margin-top: 20px;
     color: white;
-    background-color: #E4956C;
+    background-color: #34C5C5;
     transition: all 0.2s ease-in-out;
     width: 232px;
 }
@@ -118,18 +118,13 @@ header {
 
 .home a,
 .demo-reference-list a {
-    text-decoration: none;
     color: #444;
 }
 
-.home a:link, .home a:visited,
-.demo-reference-list a:link,
-.demo-reference-list a:visited {
+.home a:link, .home a:visited {
     text-decoration: none;
 }
 
-.home a:hover, .home a:active,
-.demo-reference-list a:hover,
-.demo-reference-list a:active {
+.home a:hover, .home a:active {
     text-decoration: underline;
 }
