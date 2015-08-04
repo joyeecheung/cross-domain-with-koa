@@ -11,5 +11,19 @@ block content
     code window.postMessage() 
     | Demo
 
+  .demo
+    .demo-controls
+      input#get-message-id(type="text", placeholder="id" value="some-id")
+      button#get-message-button GET the data!
+    .demo-results
+      pre#get-message-data
+
+  .demo
+    .demo-controls
+      input#post-message-id(type="text", placeholder="id" value="some-id")
+      button#post-message-button POST the data!
+    .demo-results
+      pre#post-message-data
+
 block scripts
   script(src="/js/message.js")

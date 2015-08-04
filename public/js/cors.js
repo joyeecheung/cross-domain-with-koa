@@ -4,7 +4,7 @@ function handleResponse(id, xhr) {
   var pre = document.getElementById(id);
   var response = xhr.responseText;
   var body = JSON.stringify(JSON.parse(response), null, 4);
-  pre.textContent = body;
+  pre.textContent = xhr.responseURL + '\n' + body;
 }
 
 function createCORSRequest(method, url) {
