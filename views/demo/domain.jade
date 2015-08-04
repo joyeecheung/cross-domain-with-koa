@@ -11,5 +11,26 @@ block content
     code document.domain 
     | Demo
 
+  .demo
+    p.demo-explanation You are on
+      code#current-domain
+      | and are about to communicate with
+      code#another-domain
+
+
+    .demo-controls
+      input#get-domain-id(type="text", placeholder="id" value="some-id")
+      button#get-domain-button GET the data!
+    .demo-results
+      pre#get-domain-data
+
+  .demo
+    .demo-controls
+      input#post-domain-id(type="text", placeholder="id" value="some-id")
+    .demo-controls
+      button#post-domain-button POST the data!
+    .demo-results
+      pre#post-domain-data
+
 block scripts
   script(src="/js/domain.js")

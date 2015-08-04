@@ -60,3 +60,16 @@
     margin: auto;
     max-width: 80%;
 }
+
+.demo-explanation {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.demo-explanation code {
+    background-color: #eee;
+    padding: 1px 8px;
+    margin: 0 10px;
+    border: 1px solid #bbb;
+    border-radius: 3px;
+}
