@@ -7,24 +7,51 @@ block styles
   link(rel='stylesheet', href="/css/demo.css")
 
 block content
-  h1 CORS Demo
+  header
+    div.home
+      a(href="/") &#9664; Home
+    h1 CORS Demo
 
   .demo
     .demo-controls
       input#get-cors-id(type="text", placeholder="id" value="some-id")
       button#get-cors-button GET the data!
+      p.demo-url URL:
+        span#get-cors-url
     .demo-results
       pre#get-cors-data
 
   .demo
     .demo-controls
       input#post-cors-id(type="text", placeholder="id" value="some-id")
-    .demo-controls
       button#post-cors-button POST the data!
-      input#post-cors-preflight(type="checkbox")
-      label(for="post-cors-preflight") preflight
+      div
+        input#post-cors-preflight(type="checkbox")
+        label(for="post-cors-preflight") preflight
+      p.demo-url URL:
+        span#post-cors-url
     .demo-results
       pre#post-cors-data
+
+  .demo-reference
+    h3 Reference
+    ul.demo-reference-list
+      li
+        a(href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS")
+          | HTTP access control (CORS) - HTTP | MDN
+      li
+        a(href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy")
+          | Same-origin policy | MDN
+      li
+        a(href="http://www.w3.org/TR/cors/")
+          | W3C - Cross-Origin Resource Sharing
+      li
+        a(href="http://www.html5rocks.com/en/tutorials/cors/")
+          | Using CORS - HTML5 Rocks
+      li
+        a(href="https://wiki.mozilla.org/Security/Origin")
+          | Security/Origin - MozillaWiki
+        
 
 block scripts
   script(src="/js/cors.js")

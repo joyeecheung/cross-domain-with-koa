@@ -1,10 +1,12 @@
 var DONE = 4;  // XHR DONE readystate code
 
-function handleResponse(id, xhr) {
-  var pre = document.getElementById(id);
+function handleResponse(dataId, urlId, xhr) {
+  var pre = document.getElementById(dataId);
   var response = xhr.responseText;
   var body = JSON.stringify(JSON.parse(response), null, 4);
-  pre.textContent = xhr.responseURL + '\n' + body;
+  pre.textContent = body;
+  var url = document.getElementById(urlId);
+  url.textContent = xhr.responseURL;
 }
 
 function createCORSRequest(method, url) {
@@ -25,22 +27,22 @@ function createCORSRequest(method, url) {
   return xhr;
 }
 
+// GET demo
 var getButton = document.getElementById('get-cors-button');
-
 getButton.addEventListener('click', function() {
   var id = document.getElementById('get-cors-id').value;
   var url = 'http://bar.com/api/cors/' + id;
   var xhr = createCORSRequest('GET', url);
   xhr.onreadystatechange = function() {
     if (xhr.readyState === DONE) {
-      handleResponse('get-cors-data', xhr)
+      handleResponse('get-cors-data', 'get-cors-url', xhr)
     }
   };
   xhr.send();
 });
 
+// POST demo
 var postButton = document.getElementById('post-cors-button');
-
 postButton.addEventListener('click', function() {
   var id = document.getElementById('post-cors-id').value;
   var url = 'http://bar.com/api/cors/';
@@ -56,14 +58,13 @@ postButton.addEventListener('click', function() {
 
   xhr.onreadystatechange = function() {
     if (xhr.readyState === DONE) {
-      handleResponse('post-cors-data', xhr)
+      handleResponse('post-cors-data', 'post-cors-url', xhr)
     }
   };
 
   if (preflight) {
     xhr.send(JSON.stringify({ id: id }));
   } else {
-    xhr.send('id=' + id);
+    xhr.send('id=' + id);  // url-encoded
   }
-  
 });

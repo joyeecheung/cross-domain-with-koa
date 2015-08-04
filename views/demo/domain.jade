@@ -7,19 +7,25 @@ block styles
   link(rel='stylesheet', href="/css/demo.css")
 
 block content
-  h1
-    code document.domain 
-    | Demo
+  header
+    div.home
+      a(href="/") &#9664; Home
+    h1
+      code document.domain 
+      | Demo
 
   .demo
     p.demo-explanation You are on
       code#current-domain
       | and are about to communicate with
       code#another-domain
-
+  
+  .demo
     .demo-controls
       input#get-domain-id(type="text", placeholder="id" value="some-id")
       button#get-domain-button GET the data!
+      p.demo-url URL:
+        span#get-domain-url
     .demo-results
       pre#get-domain-data
 
@@ -27,8 +33,24 @@ block content
     .demo-controls
       input#post-domain-id(type="text", placeholder="id" value="some-id")
       button#post-domain-button POST the data!
+      p.demo-url URL:
+        span#post-domain-url
     .demo-results
       pre#post-domain-data
+
+  .demo-reference
+    h3 Reference
+    ul.demo-reference-list
+      li
+        a(href="https://developer.mozilla.org/en-US/docs/Web/API/Document/domain")
+          | Document.domain - Web API Interfaces | MDN
+      li
+        a(href="http://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-2250147")
+          | DOM Level 2 HTML: document.domain (describes it as read-only)
+      li
+        a(href="https://html.spec.whatwg.org/multipage/browsers.html#relaxing-the-same-origin-restriction")
+          | HTML5 Living Standard: document.domain
+
 
 block scripts
   script(src="/js/domain.js")

@@ -1,3 +1,5 @@
+// The iframe and the page should be each of
+// the two domains
 var subdomain = 'baz.foo.com';
 var basedomain = 'foo.com';
 
@@ -10,6 +12,7 @@ if (currentDomain === subdomain) {
   anotherDomain = subdomain;
 }
 
+// create a hidden iframe
 var iframe = document.createElement('iframe');
 iframe.src = 'http://' + anotherDomain + '/demo/iframe';
 iframe.style.width = 0;
@@ -17,20 +20,25 @@ iframe.style.height = 0;
 document.body.appendChild(iframe);
 
 iframe.onload = function() {
+  // this is needed to make the internal port null
   document.domain = basedomain;
 
+  // show the two domains
   document.getElementById('current-domain').textContent = currentDomain;
   document.getElementById('another-domain').textContent = anotherDomain
 
   var DONE = 4;  // XHR DONE readystate code
 
-  function handleResponse(id, xhr) {
-    var pre = document.getElementById(id);
+  function handleResponse(dataId, urlId, xhr) {
+    var pre = document.getElementById(dataId);
     var response = xhr.responseText;
     var body = JSON.stringify(JSON.parse(response), null, 4);
-    pre.textContent = xhr.responseURL + '\n' + body;
+    pre.textContent = body;
+    var url = document.getElementById(urlId);
+    url.textContent = xhr.responseURL;
   }
 
+  // GET demo
   var getButton = document.getElementById('get-domain-button');
   getButton.addEventListener('click', function() {
     var id = document.getElementById('get-domain-id').value;
@@ -39,14 +47,14 @@ iframe.onload = function() {
     xhr.open('GET', url, true);
     xhr.onreadystatechange = function() {
       if (xhr.readyState === DONE) {
-        handleResponse('get-domain-data', xhr)
+        handleResponse('get-domain-data', 'get-domain-url', xhr)
       }
     };
     xhr.send();
   });
 
+  // POST demo
   var postButton = document.getElementById('post-domain-button');
-
   postButton.addEventListener('click', function() {
     var id = document.getElementById('post-domain-id').value;
     var url = 'http://' + anotherDomain + '/api/normal/';
@@ -56,7 +64,7 @@ iframe.onload = function() {
 
     xhr.onreadystatechange = function() {
       if (xhr.readyState === DONE) {
-        handleResponse('post-domain-data', xhr)
+        handleResponse('post-domain-data', 'post-domain-url', xhr)
       }
     };
 

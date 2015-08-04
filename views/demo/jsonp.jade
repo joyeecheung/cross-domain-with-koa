@@ -7,15 +7,29 @@ block styles
   link(rel='stylesheet', href="/css/demo.css")
 
 block content
-  h1 JSONP Demo
+  header
+    div.home
+      a(href="/") &#9664; Home
+    h1 JSONP Demo
 
   .demo
     .demo-controls
       input#get-jsonp-id(type="text", placeholder="id" value="some-id")
       button#get-jsonp-button GET the data!
+      p.demo-url URL:
+        span#get-jsonp-url
     .demo-results
       pre#get-jsonp-data
 
+  .demo-reference
+    h3 Reference
+    ul.demo-reference-list
+      li
+        a(href="http://stackoverflow.com/questions/2067472/what-is-jsonp-all-about")
+          | What is JSONP all about?
+      li
+        a(href="https://en.wikipedia.org/wiki/JSONP")
+          | JSONP - Wikipedia, the free encyclopedia
 
 block scripts
   script(src="/js/jsonp.js")

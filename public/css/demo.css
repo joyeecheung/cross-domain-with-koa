@@ -5,23 +5,41 @@
     /* float: right; */
 }
 
-.demo {
+header {
     max-width: 800px;
     margin: 0 auto;
+    position: relative;
+}
+
+.demo,
+.demo-reference {
+    max-width: 800px;
+    overflow: hidden;
+    margin: auto;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    padding: 20px
+}
+
+.demo + .demo {
+    margin-top: 30px;
 }
 
 .demo-controls {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 26px;
+    width: 42%;
+    float: left;
 }
 
 .demo-results {
-    margin-top: 30px;
+    margin-top: 20px;
+    width: 58%;
+    float: right;
 }
 
 .demo-controls input {
     font: inherit;
-    font-size: 24px;
+    font-size: 20px;
     height: 30px;
     border-radius: 2px;
     border: 1px solid #bbb;
@@ -38,10 +56,11 @@
     padding: 8px 16px;
     
     cursor: pointer;
-    margin-left: 20px;
+    margin-top: 20px;
     color: white;
     background-color: #E4956C;
     transition: all 0.2s ease-in-out;
+    width: 232px;
 }
 
 .demo-controls button:hover {
@@ -59,6 +78,8 @@
     background-color: #eee;
     margin: auto;
     max-width: 80%;
+    min-height: 70px;
+    white-space: pre-wrap;
 }
 
 .demo-explanation {
@@ -72,4 +93,43 @@
     margin: 0 10px;
     border: 1px solid #bbb;
     border-radius: 3px;
+}
+
+.demo-url {
+    font-family: monaco, menlo, consolas, monospace;
+    margin: 10px;
+}
+
+.home a {
+    font-size: 20px;
+}
+
+.demo-reference {
+    margin-top: 30px;
+}
+
+.demo-reference h3 {
+    margin-left: 30px;
+}
+
+.demo-reference-list li {
+    margin-top: 10px;
+}
+
+.home a,
+.demo-reference-list a {
+    text-decoration: none;
+    color: #444;
+}
+
+.home a:link, .home a:visited,
+.demo-reference-list a:link,
+.demo-reference-list a:visited {
+    text-decoration: none;
+}
+
+.home a:hover, .home a:active,
+.demo-reference-list a:hover,
+.demo-reference-list a:active {
+    text-decoration: underline;
 }

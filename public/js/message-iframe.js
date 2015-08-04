@@ -2,6 +2,8 @@ var DONE = 4;
 
 window.addEventListener('message', function(e) {
   var message = e.data;
+
+  // create an AJAX request for the message
   var xhr = new XMLHttpRequest();
   xhr.open(message.method, message.url, true);
   if (message.headers) {
@@ -9,6 +11,7 @@ window.addEventListener('message', function(e) {
       xhr.setRequestHeader(header, message.headers[header]);
   }
 
+  // post the result to the source window
   xhr.onreadystatechange = function() {
     if (xhr.readyState === DONE) {
       e.source.postMessage({

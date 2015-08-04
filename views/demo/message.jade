@@ -7,14 +7,19 @@ block styles
   link(rel='stylesheet', href="/css/demo.css")
 
 block content
-  h1 
-    code window.postMessage() 
-    | Demo
+  header
+    div.home
+      a(href="/") &#9664; Home
+    h1 
+      code window.postMessage() 
+      | Demo
 
   .demo
     .demo-controls
       input#get-message-id(type="text", placeholder="id" value="some-id")
       button#get-message-button GET the data!
+      p.demo-url URL:
+        span#get-message-url
     .demo-results
       pre#get-message-data
 
@@ -22,8 +27,17 @@ block content
     .demo-controls
       input#post-message-id(type="text", placeholder="id" value="some-id")
       button#post-message-button POST the data!
+      p.demo-url URL:
+        span#post-message-url
     .demo-results
       pre#post-message-data
+
+  .demo-reference
+    h3 Reference
+    ul.demo-reference-list
+      li
+        a(href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage")
+          | Window.postMessage() - Web API Interfaces | MDN
 
 block scripts
   script(src="/js/message.js")

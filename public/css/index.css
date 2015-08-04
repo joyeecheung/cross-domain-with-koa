@@ -9,14 +9,14 @@ hr {
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-ul {
+.demos {
     font-size: 24px;
     list-style-type: none;
     margin: 40px;
     padding: 0;
 }
 
-li a {
+.demos li a {
     display: block;
     margin-top: 10px;
     padding: 20px;
@@ -26,23 +26,55 @@ li a {
     transition: all 0.1s ease-in-out;
 }
 
-li:nth-child(1) a {
+.demos li:nth-child(1) a {
     border-left: 8px solid rgb(52, 197, 197);
 }
-li:nth-child(2) a {
+.demos li:nth-child(2) a {
     border-left: 8px solid #E4956C;
 }
-li:nth-child(3) a {
+.demos li:nth-child(3) a {
     border-left: 8px solid rgb(195, 91, 147);
 }
-li:nth-child(4) a {
+.demos li:nth-child(4) a {
     border-left: 8px solid rgb(149, 192, 85);
 }
 
-a:link, a:visited {
+.demos a:link, .demos a:visited {
     background-color: white;
 }
 
-a:hover, a:active {
+.demos a:hover, .demos a:active {
     background-color: rgba(0, 0, 0, 0.03);
+}
+
+.reference {
+    max-width: 800px;
+    overflow: hidden;
+    margin: 40px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    padding: 20px
+}
+
+
+.reference h3 {
+    margin-left: 20px;
+}
+
+.reference-list li {
+    margin-top: 10px;
+}
+
+.reference-list a {
+    text-decoration: none;
+    color: #444;
+}
+
+.reference-list a:link,
+.reference-list a:visited {
+    text-decoration: none;
+}
+
+.reference-list a:hover,
+.reference-list a:active {
+    text-decoration: underline;
 }
